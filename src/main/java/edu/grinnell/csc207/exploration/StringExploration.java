@@ -5,7 +5,9 @@ import java.util.Scanner;
 public class StringExploration {
 
     /** 
-     * Concatnate strings in an array with a comma.
+     * Concatnate strings in an array with a comma
+     * @param strs
+     * @return New format string.
     */
     public static String intersperse(String[] strs) {
        if (strs.length == 0) {
