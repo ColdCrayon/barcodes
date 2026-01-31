@@ -2,17 +2,23 @@
 
 ## About
 
-_(TODO: insert a description of the project here!)_
+This project contains the first 2 labs.
+
+The first lab implements a simple FizzBuzz class printing integers up to `n`. Any integers that are a multiple of three will print "Fizz" while multiples of five print "Buzz." If the integer is a multiple of both, it prints "FizzBuzz."
+
+_insert string exploration description_
+
+The second lab implements a program that creates a barcode defined by the given UPC-A code. It prints `n` rows of the bar code.
 
 ### Authors
 
-*   _(TODO: insert your names here!)_
-*  ...
+- Cadel Saszik
+- John Kafumbe
 
 ### Resources
 
-*   _(TODO: list your resources here!)_
-*   ...
+- https://osera.cs.grinnell.edu/ttap/data-structures-labs/java-explorations.html
+- https://osera.cs.grinnell.edu/ttap/data-structures-labs/barcodes.html
 
 ## Write-up
 
@@ -40,3 +46,5 @@ To compare two strings for equality, we must use the .equals() method rather tha
 3 In Java, == compares the memory addresses, not the contents of the objects. In examples B and C, we created new String objects. Even though they contain the same characters, they are stored in different locations in memory.
 
 4 Since both variables represent the same fixed value, Java points both s1 and s2 point to the same memory reference in the pool.
+
+
