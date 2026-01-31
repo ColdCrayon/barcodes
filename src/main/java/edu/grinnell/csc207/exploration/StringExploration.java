@@ -1,21 +1,62 @@
 package edu.grinnell.csc207.exploration;
 
+import java.util.Scanner;
+
 public class StringExploration {
 
-    /** TODO: fill me in and my docstring! */
+    /** 
+     * Concatnate strings in an array with a comma.
+    */
     public static String intersperse(String[] strs) {
-        return null;
+       if (strs.length == 0) {
+            return "";
+        }
+        String result = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            result = result + "," + strs[i];
+        }
+        return result;
     }
 
-    /** TODO: fill me in and my docstring! */
+    /** * Reorders a name from Last,First,Middle to First Middle Last.
+     * @param fullName 
+     * @return The new formatted name string.
+     */
     public static String parseName(String fullName) {
-        return fullName;
+        String[] parts = fullName.split (",");
+
+        String lastName = parts[0];
+        String firstName = parts[1];
+        String middleName = parts[2];
+
+        return firstName + " " + middleName + " " + lastName;
     }
 
-    /** TODO: fill me in and my docstring! */
+   /** * Asks the user a question and waits for aresponse.
+     * Accepts'y', 'yes', 'n', 'no'.
+     * @param question 
+     * @return true if the user responds correctly, false otherwise.
+     */
     public static boolean forgivingPrompt(String question) {
-        return false;
+        Scanner scanner = new Scanner(System.in);
+
+         while (true) {
+            System.out.print(question + " (y/n): ");
+            String input = scanner.nextLine().toLowerCase().trim();
+            
+        if (input.equals("y") || input.equals("yes") || input.equals("yep")) {
+            return true;
+        } 
+    
+
+        if (input.equals("n") || input.equals("no") || input.equals("nope")) {
+            return false;
+        }
+
+        System.out.println("Try again");
     }
+}
+
 
     // N.B., to run this program, use the following maven command to specify
     // this file as the program entry point rather than the class specified in
@@ -23,6 +64,13 @@ public class StringExploration {
     //
     // mvn compile exec:java -q "-Dexec.mainClass=edu.grinnell.csc207.exploration.StringExploration"
     public static void main(String[] args) {
-        // TODO: write your exploration code here!
+
+       String[] strs = { "ab", "cd", "ef" };
+       System.out.println(intersperse(strs));
+
+       String inputName = "Turing,Alan,Mathison";
+       System.out.println(parseName(inputName));
+
+        forgivingPrompt("Do you like eating mangoes?");
     }
 }
