@@ -6,7 +6,11 @@ This project contains the first 2 labs.
 
 The first lab implements a simple FizzBuzz class printing integers up to `n`. Any integers that are a multiple of three will print "Fizz" while multiples of five print "Buzz." If the integer is a multiple of both, it prints "FizzBuzz."
 
-_insert string exploration description_
+The first part of the String Exploration lab practices learning to work with Java strings by comparing common string operations from C to Java’s String methods.
+
+The second part of the Sting Exploration lab explains why == is not reliable for string equality in Java and using .equals() instead is better.
+
+The last part of the String Exploration lab and implements three functions: intersperse which joins array strings with commas, parseName that reformats "last,first,middle" into "first middle last", and forgivingPrompt that asks a yes/no question until a valid response is entered.
 
 The second lab implements a program that creates a barcode defined by the given UPC-A code. It prints `n` rows of the bar code.
 
