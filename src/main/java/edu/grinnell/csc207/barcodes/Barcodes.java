@@ -203,7 +203,7 @@ public class Barcodes {
         }
 
         String code = args[0];
-        int rows = toDigit(args[1].charAt(0));
+        int rows = Integer.parseInt(args[1]);
 
         if (rows < 1) {
             System.out.println("Height must be a positive integer.");
