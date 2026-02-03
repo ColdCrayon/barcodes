@@ -57,8 +57,6 @@ public class StringExploration {
             System.out.println("Try again");
         }
 
-        scanner.close();
-
         return false;
     }
 
