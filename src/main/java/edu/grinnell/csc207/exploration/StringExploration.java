@@ -36,7 +36,7 @@ public class StringExploration {
     }
 
     /**
-     * * Asks the user a question and waits for aresponse.
+     * * Asks the user a question and waits for a response.
      * Accepts'y', 'yes', 'n', 'no'.
      * 
      * @param question
@@ -56,6 +56,8 @@ public class StringExploration {
 
             System.out.println("Try again");
         }
+
+        scanner.close();
 
         return false;
     }
