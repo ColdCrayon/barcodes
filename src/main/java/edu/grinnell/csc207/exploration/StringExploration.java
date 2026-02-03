@@ -28,10 +28,10 @@ public class StringExploration {
      * @return The new formatted name string.
      */
     public static String parseName(String fullName) {
-        String[] parts = fullName.split (",");
+        String[] parts = fullName.split(",");
         if (parts.length < 3) {
-        return fullName;
-    }
+            return fullName;
+        }
         return parts[1].trim() + " " + parts[2].trim() + " " + parts[0].trim();
     }
 
@@ -46,17 +46,20 @@ public class StringExploration {
         Scanner scanner = new Scanner(System.in);
 
         while (scanner.hasNextLine()) {
-        System.out.print(question + " (y/n): ");
-        String input = scanner.nextLine().toLowerCase().trim();
-        
-        if (input.equals("y") || input.equals("yes") || input.equals("yep")) 
-            return true;
-        if (input.equals("n") || input.equals("no") || input.equals("nope"))
-             return false;
-        
-        System.out.println("Try again");
-    }
-    return false;
+            System.out.print(question + " (y/n): ");
+            String input = scanner.nextLine().toLowerCase().trim();
+
+            if (input.equals("y") || input.equals("yes") || input.equals("yep"))
+                return true;
+            if (input.equals("n") || input.equals("no") || input.equals("nope"))
+                return false;
+
+            System.out.println("Try again");
+        }
+
+        scanner.close();
+
+        return false;
     }
 
     // N.B., to run this program, use the following maven command to specify
