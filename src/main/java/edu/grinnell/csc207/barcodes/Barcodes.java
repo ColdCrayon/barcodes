@@ -42,8 +42,7 @@ public class Barcodes {
      */
     public static boolean isValidCode(String code) {
         if (code.length() != 12) {
-            System.out.println("Code must be a string of 12 digits. ");
-            System.exit(1);
+            return false;
         }
 
         for (int i = 0; i < 12; i++) {
@@ -62,10 +61,6 @@ public class Barcodes {
      * @return the check digit for the code
      */
     public static int computeCheckDigit(String code) {
-        if (!isValidCode(code)) {
-            System.exit(1);
-        }
-
         int odds = 0;
         int evens = 0;
         for (int i = 0; i < 11; i++) {
@@ -135,59 +130,51 @@ public class Barcodes {
      * @param code the code defining the barcode
      */
     public static void printBarcodeRow(String code) {
-        if (toDigit(code.charAt(11)) == computeCheckDigit(code)) {
-            // start zone
-            printStart();
+        // start zone
+        printStart();
 
-            // loop through first 6 digits
-            for (int i = 0; i < 6; i++) {
-                // loop through corresponding encoding for each digit
-                for (int j = 0; j < 4; j++) {
-                    // print number of blocks
-                    for (int k = 0; k < ENCODINGS[toDigit(code.charAt(i))][j]; k++) {
-                        if (j % 2 == 0) {
-                            printWhite();
-                        } else {
-                            printBlack();
-                        }
+        // loop through first 6 digits
+        for (int i = 0; i < 6; i++) {
+            // loop through corresponding encoding for each digit
+            for (int j = 0; j < 4; j++) {
+                // print number of blocks
+                for (int k = 0; k < ENCODINGS[toDigit(code.charAt(i))][j]; k++) {
+                    if (j % 2 == 0) {
+                        printWhite();
+                    } else {
+                        printBlack();
                     }
                 }
             }
-
-            // middle zone
-            printWhite();
-            printBlack();
-            printWhite();
-            printBlack();
-            printWhite();
-
-            // loop through last 6 digits
-            for (int i = 6; i < 12; i++) {
-                // loop through corresponding encoding for each digit
-                for (int j = 0; j < 4; j++) {
-                    // print number of blocks
-                    for (int k = 0; k < ENCODINGS[toDigit(code.charAt(i))][j]; k++) {
-                        if (j % 2 == 0) {
-                            printBlack();
-                        } else {
-                            printWhite();
-                        }
-                    }
-                }
-            }
-
-            // end zone
-            printEnd();
-
-            // new line
-            System.out.print("\n");
-        } else {
-            System.out.println("Expected check digit " +
-                    computeCheckDigit(code) +
-                    " but found " +
-                    code.charAt(11) + ".");
-            System.exit(1);
         }
+
+        // middle zone
+        printWhite();
+        printBlack();
+        printWhite();
+        printBlack();
+        printWhite();
+
+        // loop through last 6 digits
+        for (int i = 6; i < 12; i++) {
+            // loop through corresponding encoding for each digit
+            for (int j = 0; j < 4; j++) {
+                // print number of blocks
+                for (int k = 0; k < ENCODINGS[toDigit(code.charAt(i))][j]; k++) {
+                    if (j % 2 == 0) {
+                        printBlack();
+                    } else {
+                        printWhite();
+                    }
+                }
+            }
+        }
+
+        // end zone
+        printEnd();
+
+        // new line
+        System.out.print("\n");
     }
 
     /**
@@ -207,6 +194,19 @@ public class Barcodes {
 
         if (rows < 1) {
             System.out.println("Height must be a positive integer.");
+            System.exit(1);
+        }
+
+        if (!isValidCode(code)) {
+            System.out.println("Code must be a string of 12 digits.");
+            System.exit(1);
+        }
+
+        if (!(toDigit(code.charAt(11)) == computeCheckDigit(code))) {
+            System.out.println("Expected check digit " +
+                    computeCheckDigit(code) +
+                    " but found " +
+                    code.charAt(11) + ".");
             System.exit(1);
         }
 
