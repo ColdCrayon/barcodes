@@ -45,22 +45,18 @@ public class StringExploration {
     public static boolean forgivingPrompt(String question) {
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {
-            System.out.print(question + " (y/n): ");
-            String input = scanner.nextLine().toLowerCase().trim();
-
-            if (input.equals("y") || input.equals("yes") || input.equals("yep")) {
-                return true;
-            }
-
-            if (input.equals("n") || input.equals("no") || input.equals("nope")) {
-                return false;
-            }
-
-            System.out.println("Try again");
-
-            scanner.close();
-        }
+        while (scanner.hasNextLine()) {
+        System.out.print(question + " (y/n): ");
+        String input = scanner.nextLine().toLowerCase().trim();
+        
+        if (input.equals("y") || input.equals("yes") || input.equals("yep")) 
+            return true;
+        if (input.equals("n") || input.equals("no") || input.equals("nope"))
+             return false;
+        
+        System.out.println("Try again");
+    }
+    return false;
     }
 
     // N.B., to run this program, use the following maven command to specify
@@ -76,7 +72,5 @@ public class StringExploration {
 
         String inputName = "Turing,Alan,Mathison";
         System.out.println(parseName(inputName));
-
-        forgivingPrompt("Do you like eating mangoes?");
     }
 }
