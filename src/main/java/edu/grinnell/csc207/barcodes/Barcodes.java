@@ -42,7 +42,7 @@ public class Barcodes {
      */
     public static boolean isValidCode(String code) {
         if (code.length() != 12) {
-            System.out.println("Code must be a string of 12 digits.");
+            System.out.println("Code must be a string of 12 digits. ");
             System.exit(1);
         }
 
