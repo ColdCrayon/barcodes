@@ -26,12 +26,10 @@ public class StringExploration {
      */
     public static String parseName(String fullName) {
         String[] parts = fullName.split (",");
-
-        String lastName = parts[0];
-        String firstName = parts[1];
-        String middleName = parts[2];
-
-        return firstName + " " + middleName + " " + lastName;
+        if (parts.length < 3) {
+        return fullName;
+    }
+        return parts[1].trim() + " " + parts[2].trim() + " " + parts[0].trim();
     }
 
    /** * Asks the user a question and waits for aresponse.
